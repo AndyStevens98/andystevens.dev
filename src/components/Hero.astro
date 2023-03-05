@@ -1,0 +1,54 @@
+---
+import { Icon } from 'astro-icon'
+
+const { src = '/astronaut-hero-img.webp' } = Astro.props
+---
+
+<section class="hero my-24">
+  <div class="container">
+    <div class="grid grid-cols-1 items-center gap-24 lg:grid-cols-2">
+      <div class="flex flex-col items-center gap-8 md:items-start">
+        <h1 class="text-center text-5xl md:text-left">
+          <slot>
+            <span class="text-gradient text-7xl">Health Data</span>
+            <ul class="list-inside p-5">
+              <li class="pb-5">-  Interoperability</li>
+              <li class="pb-5">-  Analytics</li>
+              <li class="pb-5">-  Transparency</li>
+            </ul>
+          </slot>
+        </h1>
+        <div class="flex flex-col gap-3 min-[500px]:flex-row">
+          <a class="button has-icon" href="/projects">
+            <Icon name="ic:outline-folder-copy" />
+            Projects
+          </a>
+          <a
+            class="button has-icon color-secondary"
+            href="https://github.com/markteekman/accessible-astro-starter/blob/main/README.md"
+          >
+            <Icon name="mdi:briefcase-account-outline" />
+            Work Experience
+          </a>
+        </div>
+      </div>
+      <img class="hidden lg:block" src={src} alt="" decoding="async" style="width: 80%;"/>
+    </div>
+  </div>
+</section>
+
+<style lang="scss">
+  .text-gradient {
+    background: linear-gradient(315deg, var(--primary-200) 25%, var(--secondary-500));
+    background-clip: border-box;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  :global(.darkmode .text-gradient) {
+    background: linear-gradient(315deg, var(--primary-200) 25%, var(--secondary-400));
+    background-clip: border-box;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+</style>

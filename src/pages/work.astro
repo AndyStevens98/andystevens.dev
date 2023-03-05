@@ -1,0 +1,38 @@
+---
+import DefaultLayout from '../layouts/DefaultLayout.astro'
+import { Icon } from 'astro-icon'
+import Card from '../components/Card.astro'
+---
+
+<DefaultLayout title="Work">
+  <section class="my-12">
+    <div class="space-content container">
+      <h1>Work Experience</h1>
+    </div>
+  </section>
+  <section class="mb-32 mt-12">
+    <div class="container">
+      <div class="grid grid-cols-1 gap-12 md:grid-cols-2">
+        <div class="space-content">
+          <Card
+            title="Health Emerging and Advanced Technologies at Georgia Tech Research Institute"
+          />
+        </div>
+        <div class="space-content">
+          <Card
+            title = "Electro-Optical Systems Innovation at Georgia Tech Research Institute"
+          />
+        </div>
+        <div class="space-content">
+          <Card
+            title = "Enterprise Systems Division at Georgia Tech Research Institute"
+          />
+        </div>
+        <div class="space-content">
+          <Card
+          />
+        </div>
+      </div>
+    </div>
+  </section>
+</DefaultLayout>
