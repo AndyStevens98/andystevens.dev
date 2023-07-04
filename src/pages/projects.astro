@@ -1,6 +1,8 @@
 ---
 import DefaultLayout from '../layouts/DefaultLayout.astro'
 import { Card } from 'accessible-astro-components'
+import PillSection from '../components/PillSection.astro'
+import PillBadge from '../components/PillBadge.astro'
 ---
 
 <DefaultLayout
@@ -10,27 +12,22 @@ import { Card } from 'accessible-astro-components'
   <section class="my-12">
     <div class="space-content container">
       <h1>Projects</h1>
-      <p class="text-2xl">
-        An example of a blog with content made statically using project&lt;n&gt;.astro.
-        The Accessible Astro Card Component is used here to display all the projects.
-      </p>
+      <h1 class="text-center">🚧 Currently under construction 🚧</h1>
     </div>
   </section>
-  <section class="my-12">
+  <!-- <section class="my-12">
     <div class="container">
       <ul class="my-3">
         <li>
-              <Card
-                url="/projects/project1"
-                title="Project 1"
-                footer="Test Footer"
-              >
-                Test post body
-              </Card>
+          <Card url="/projects/project1" title="Project 1" footer="Test Footer">
+            <PillSection title="Test">
+              {['tag1', 'tag2', 'tag3'].forEach((tag: string) => <PillBadge title={tag} color="red" />)}
+            </PillSection>
+          </Card>
         </li>
       </ul>
     </div>
-  </section>
+  </section> -->
 </DefaultLayout>
 
 <style lang="scss">

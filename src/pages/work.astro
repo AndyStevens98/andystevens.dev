@@ -1,7 +1,8 @@
 ---
 import DefaultLayout from '../layouts/DefaultLayout.astro'
-import { Icon } from 'astro-icon'
-import Card from '../components/Card.astro'
+import PillBadge from '../components/PillBadge.astro'
+import PillSection from '../components/PillSection.astro'
+import Feature from '../components/Feature.astro'
 ---
 
 <DefaultLayout title="Work">
@@ -13,25 +14,160 @@ import Card from '../components/Card.astro'
   <section class="mb-32 mt-12">
     <div class="container">
       <div class="grid grid-cols-1 gap-12 md:grid-cols-2">
-        <div class="space-content">
-          <Card
-            title="Health Emerging and Advanced Technologies at Georgia Tech Research Institute"
-          />
-        </div>
-        <div class="space-content">
-          <Card
-            title = "Electro-Optical Systems Innovation at Georgia Tech Research Institute"
-          />
-        </div>
-        <div class="space-content">
-          <Card
-            title = "Enterprise Systems Division at Georgia Tech Research Institute"
-          />
-        </div>
-        <div class="space-content">
-          <Card
-          />
-        </div>
+        <Feature title="Health Emerging and Advanced Technologies" icon="mdi:fire">
+          <p class="text-xl font-bold">Georgia Tech Research Institute</p>
+          <p style="text-align:left;" class="text-l italic">
+            Interoperability Branch Head & Research Engineer
+            <span style="float:right;"> 2021 - Present</span>
+          </p>
+          <br />
+          <ul class="ml-4 list-disc">
+            <li>
+              Supported hiring activities, including resume reviews, interviews, offer process coordination with HR/TM
+              and onboarding
+            </li>
+            <li>Mentored junior personnel for career growth and satisfaction and conducted yearly appraisals</li>
+            <li>
+              Managed student employees from identification / recruitment of candidates through hiring and assigning
+              projects / duties / leads for co-mentoring and supervision to assure a positive student learning and
+              cultural experience
+            </li>
+            <li>
+              Collaborated on the development of the strategic vision and execution plan for HIS-B with the Division
+              Leadership and Laboratory Directorate
+            </li>
+            <li>Led / co-led contract development and expansion activities and interfacing with research sponsors</li>
+            <li>
+              Managed budgets, resources, and compliance with policies and procedures, with the support of the program
+              and project portfolio team
+            </li>
+            <li>
+              Led an agile team in developing and influencing health interoperability solutions, standards, and
+              applications to cover a diverse array of stakeholder needs
+            </li>
+            <li>Identified new opportunities to expand our health interoperability sponsor base</li>
+            <li>
+              Led research activities supporting sponsored projects to achieve on time and on budget deliverables for
+              both internal and sponsored research projects
+            </li>
+            <li>
+              Developed and executed internal research and development programs supporting the division's and ICL's
+              strategic visions
+            </li>
+            <li>
+              Developed proposals and scopes of work for new / cross-disciplinary research efforts and new business
+              development efforts
+            </li>
+            <li>
+              Created a Python package for FHIR Data Generation for testing systems that require data with certain codes
+              and values
+            </li>
+            <li>Implemented and administrated a REDCap system</li>
+            <li>
+              Used Clinical Quality Language (CQL) and Natural Language Processing Query Language (NLPQL) to filter and
+              retrieve clinical data for proof-of-concept applications
+            </li>
+            <li>
+              Utilized a CI/CD pipeline in GitLab using Docker and Linux commands to deploy applications in an internal
+              space
+            </li>
+            <li>
+              Crafted technical documentation of internal tools for project deliverables as well as open-source guides
+              for the health technology community
+            </li>
+            <li>
+              Designed and implemented application programming interfaces (APIs) to support frontend development as well
+              as connecting backend analytics services for delivery of results from structured and unstructured (NLP)
+              data analyses
+            </li>
+            <li>Used SQL to transform a large clinical data set to the standard OMOP CDM for research use</li>
+          </ul>
+          <br />
+          <PillSection title="Skills">
+            <PillBadge title="Fast Healthcare Interoperability Resources (FHIR)" color="orange" />
+            <PillBadge title="Python" color="green" />
+            <PillBadge title="Technical Document Writing" color="purple" />
+            <PillBadge title="Clinical Quality Language (CQL)" color="pink" />
+            <PillBadge title="Docker" color="blue" />
+            <PillBadge title="OMOP CDM" color="yellow" />
+            <PillBadge title="SQL" color="teal" />
+            <PillBadge title="REDCap" color="red" />
+            <PillBadge title="Git" color="indigo" />
+            <PillBadge title="Linux" color="lime" />
+            <PillBadge title="Solr" color="yellow" />
+            <PillBadge title="CI/CD" color="gray" />
+            <PillBadge title="Atlassian Tools (Confluence/Jira)" color="blue" />
+          </PillSection>
+        </Feature>
+        <Feature title="Electro-Optical Systems Innovation" icon="ri:camera-lens-line">
+          <p class="text-xl font-bold">Georgia Tech Research Institute</p>
+          <p style="text-align:left;" class="text-l italic">
+            Student Assistant
+            <span style="float:right;"> 2019 - 2020</span>
+          </p>
+          <br />
+          <ul class="ml-4 list-disc">
+            <li>
+              Was tasked with the design, analysis, assembly, alignment, and testing of optical systems, including a
+              system was recently named one of GTRI's major initiatives
+            </li>
+            <li>
+              Some significant projects include: an optical imaging system for space situational awareness initiatives,
+              a sensor review for a degraded visual environment system, and an underwater-mapping LiDAR system
+            </li>
+            <li>
+              Collaborated on a summer internship project for the research of integrated modeling of optical systems,
+              using Python to connect Zemax OpticStudio and SolidWorks to decrease time spent on optomechanical design
+              and analysis
+            </li>
+          </ul>
+          <br />
+          <PillSection title="Skills">
+            <PillBadge title="SolidWorks" color="red" />
+            <PillBadge title="Zemax OpticStudio" color="yellow" />
+            <PillBadge title="Python" color="green" />
+            <PillBadge title="Optical Alignment" color="blue" />
+            <PillBadge title="Git" color="indigo" />
+            <PillBadge title="Technical Document Writing" color="purple" />
+          </PillSection>
+        </Feature>
+        <Feature title="Enterprise Systems Division">
+          <p class="text-xl font-bold">Georgia Tech Research Institute</p>
+          <p style="text-align:left;" class="text-l italic">
+            Student Assistant
+            <span style="float:right;"> 2018 - 2019</span>
+          </p>
+          <br />
+          <ul class="ml-4 list-disc">
+            <li>
+              Provided written documentation for systems infrastructure applications developed and maintained by the
+              department by updating this information in the department Wiki
+            </li>
+            <li>
+              Created an architecture diagram for each application in Microsoft Visio and updated this diagram when
+              necessary
+            </li>
+            <li>
+              Created and documented systems architecture for existing enterprise applications as well as applications
+              in development
+            </li>
+            <li>
+              Problem-solved solutions for information management to increase efficiency for leadership when viewing
+              workplace data
+            </li>
+            <li>
+              Significant projects include: Merging Duplicate Users in a Compliance-Management System, Gathering Data
+              from Oracle SQL Databases for Analysis, and Creating an Automated Resource Management Spreadsheet
+            </li>
+          </ul>
+          <br />
+          <PillSection title="Skills">
+            <PillBadge title="Technical Document Writing" color="purple" />
+            <PillBadge title="Git" color="indigo" />
+            <PillBadge title="Python" color="green" />
+            <PillBadge title="Microsoft Visio" color="blue" />
+          </PillSection>
+        </Feature>
       </div>
     </div>
   </section>
