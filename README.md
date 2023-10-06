@@ -57,7 +57,6 @@ If you find that something isn't working right then I'm always happy to hear it 
 4. [Buying me a coffee!](https://www.buymeacoffee.com/markteekman)
 
 ## ☕ Thank you!
-
 A big thank you to the creators of the awesome Astro static site generator and to all using this starter to make the web a bit more accessible for all people around the world :)
 
 [![buymeacoffee-button](https://user-images.githubusercontent.com/3909046/150683481-be070424-7bb0-4dd7-a3cb-43b5605163f5.png)](https://www.buymeacoffee.com/markteekman)
