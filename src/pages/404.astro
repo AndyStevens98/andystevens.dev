@@ -1,17 +1,12 @@
 ---
-import DefaultLayout from '../layouts/DefaultLayout.astro'
+import BaseLayout from "../layouts/BaseLayout.astro";
 ---
 
-<DefaultLayout title="404">
-  <section class="my-12">
-    <div class="container">
-      <h1>404</h1>
-    </div>
-  </section>
-  <section class="my-12">
-    <div class="space-content container">
-      <p class="text-2xl">This page does not exist. Don't worry though, we got you.</p>
-      <a class="button" href="/">Let's get you home Astronout 🚀</a>
-    </div>
-  </section>
-</DefaultLayout>
+<BaseLayout title = "404: Not Found" includeSidebar={false}>
+  <div class="text-center">
+    <h1 class="text-9xl font-bold mb-4">🏝</h1>
+    <h1 class="text-9xl font-bold mb-2">404</h1>
+    <h3 class="text-2xl">The page you're looking for couldn't be found.</h3>
+    <a class="btn btn-accent mt-9" href="/">Home</a>
+  </div>
+</BaseLayout>
