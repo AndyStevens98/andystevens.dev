@@ -1,292 +1,140 @@
-# Astrofy | Personal Portfolio Website Template
+### Running the Template
 
-![Astrofy | Personal Porfolio Website Template](public/social_img.webp)
-
-Astrofy is a free and open-source template for your Personal Portfolio Website built with Astro and TailwindCSS. Create in minutes a website with a Blog, CV, Project Section, Store, and RSS Feed.
-
-## Demo
-
-View a live demo of [Astrofy](https://astrofy-template.netlify.app/)
-
-## Installation
-
-Run the following command in your terminal
+1. Install dependencies:
 
 ```bash
+npm install
+# or
+yarn install
+# or
 pnpm install
 ```
 
-Once the packages are installed you are ready to run astro. Astro comes with a built-in development server that has everything you need for project development. The astro dev command will start the local development server so that you can see your new website in action for the very first time.
+2. Run the development server:
 
 ```bash
-pnpm run dev
+npm run dev
+# or
+yarn dev
+# or
+pnpm dev
 ```
 
-## Tech Stack
-
-- [Astro](https://astro.build)
-- [tailwindcss](https://tailwindcss.com/)
-- [DaisyUI](https://daisyui.com/)
-
-## Project Structure
-
-```php
-├── src/
-│   ├── components/
-│   │   ├── cv/
-│   │   │   ├── TimeLine
-│   │   ├── BaseHead.astro
-│   │   ├── Card.astro
-│   │   ├── Footer.astro
-│   │   ├── Header.astro
-│   │   └── HorizontalCard.astro
-│   │   └── SideBar.astro
-│   │   └── SideBarMenu.astro
-│   │   └── SideBarFooter.astro
-│   ├── content/
-│   │   ├── blog/
-│   │   │   ├── post1.md
-│   │   │   ├── post2.md
-│   │   │   └── post3.md
-│   │   ├── store/
-│   │   │   ├── item1.md
-│   │   │   ├── item2.md
-│   ├── layouts/
-│   │   └── BaseLayout.astro
-│   │   └── PostLayout.astro
-│   └── pages/
-│   │   ├── blog/
-│   │   │   ├── [...page].astro
-│   │   │   ├── [slug].astro
-│   │   └── cv.astro
-│   │   └── index.astro
-│   │   └── projects.astro
-│   │   └── rss.xml.js
-│   ├── styles/
-│   │   └── global.css
-│   └── config.ts
-├── public/
-│   ├── favicon.svg
-│   └── profile.webp
-│   └── social_img.webp
-├── astro.config.mjs
-├── tailwind.config.cjs
-├── package.json
-└── tsconfig.json
-```
-
-### Site config
-
-You can change global site configuration on '/src/config.ts' file:
-
-- **SITE_TITLE**: Default pages title.
-- **SITE_DESCRIPTION**: Default pages title.
-- **GENERATE_SLUG_FROM_TITLE**: By default Astrofy will generate the blog slug pages base on the article name. Set this var to false if you want to use the Astro file base (Compatible with Astrofy older versions).
-- **TRANSITION_API**: Enable and disable transition API
-
-### Components usage
+3. Open [http://localhost:3000](http://localhost:3000) in your browser to see the portfolio.
 
-#### Layout Components
+## Setting Up Resend for Contact Form
 
-The `BaseHead`, `Footer`, `Header`, and `SideBar` components are already included in the layout system. To change the website content you can edit the content of these components.
+To receive emails from the contact form, you need to configure Resend:
 
-##### SideBar
+1.  **Sign up on [Resend](https://resend.com/)**: Create a free account.
 
-In the Sidebar you can change your profilePicture, links to all your website pages, and your social icons.
+2.  **Generate API Key**:
+    - Go to the "API Keys" section in your Resend dashboard.
+    - Click "Create API Key".
+    - Give it a name (e.g., "Portfolio") and set permissions to "Full Access" for sending emails.
+    - Copy the generated API key.
 
-You can change your avatar shape using [mask classes](https://daisyui.com/components/mask/).
+3.  **Set Local Environment Variables**:
+    - For local development, create a file named `.env.local` in the root of your project.
+    - Add the following variables to the file:
 
-The used social-icons are SVG form [BoxIcons](https://boxicons.com/) pack. You can replace the icons in the `SideBarFooter` component
+    ```
+    RESEND_API_KEY=your_resend_api_key
+    CONTACT_EMAIL=your_email@example.com
+    ```
 
-To add a new page in the sidebar go to the `SideBarMenu` component.
+    - Replace `your_resend_api_key` with the key you copied from Resend.
+    - Replace `your_email@example.com` with the email address where you want to receive contact form submissions.
 
-```
-<li><a class="py-3 text-base" id="home" href="/">Home</a></li>
+4.  **Add Environment Variables to Vercel**:
+    - When you deploy your project to Vercel, you need to add the `RESEND_API_KEY` and `CONTACT_EMAIL` to your Vercel project's environment variables.
+    - In your Vercel project dashboard, go to "Settings" > "Environment Variables".
+    - Add the `RESEND_API_KEY` and `CONTACT_EMAIL` with their respective values.
 
-```
+Now your contact form should be able to send you emails via Resend, both locally and in production.
 
-**Note**: In order to change the sidebar menu's active item, you need to setup the prop `sideBarActiveItemID` in the `BaseLayout` component of your new page and add that id to the link in the `SideBarMenu`
+## Customization
 
-#### TimeLine
+### Personal Information
 
-The timeline components are used to confirm the CV.
+1. Update metadata in `app/layout.tsx`:
+   - Site title
+   - Description
+   - Open Graph metadata
+   - Favicon
 
-```html
-<div class="time-line-container">
-  <TimeLineElement title="Element Title" subtitle="Subtitle">
-    Content that can contain
-    <div>divs</div>
-    and <span>anything else you want</span>.
-  </TimeLineElement>
-  ...
-</div>
-```
+2. Modify content in `app/page.tsx`:
+   - Hero section
+   - About section
+   - Projects
+   - Contact information
 
-#### Card & HorizontalCard
+3. Replace assets:
+   - Replace images in the `public` directory
+   - Update social media icons
+   - Modify logo if needed
 
-The cards are primarly used for the Project and the Blog components. They include a picture, a title, and a description.
+### Styling
 
-```html
-<HorizontalCard title="Card Title" img="imge_url" desc="Description" url="Link
-URL" target="Optional link target (_blank default)" badge="Optional badge"
-tags={['Array','of','tags']} />
-```
+1. Colors and Theme:
+   - Customize colors in `tailwind.config.js`
+   - Modify theme variables in `app/globals.css`
 
-#### HorizontalCard Shop Item
+2. Typography:
+   - Update font families in `tailwind.config.js`
+   - Modify text sizes and weights
 
+3. Layout:
+   - Adjust spacing and padding in component files
+   - Modify responsive breakpoints in `tailwind.config.js`
 
-This component is already included in the Store layout of the template. In case you want to use it in another place these are the props.
+## Troubleshooting
 
-```html
-<HorizontalShopItem
-  title="Item Title"
-  img="imge_url"
-  desc="Item description"
-  pricing="current_price"
-  oldPricing="old_price"
-  checkoutUrl="external store checkout url"
-  badge="Optional badge"
-  url="item details url"
-  custom_link="Custom link url"
-  custom_link_label="Cutom link btn label"
-  target="Optional link target (_self default)"
-/>
-```
+### Common Issues
 
-#### Adding a Custom Component
+1. **Build Errors**
+   - Ensure all dependencies are installed
+   - Clear `.next` folder and node_modules
+   - Run `npm install` again
 
-To add a custom component, you can create a .astro file in the components folder under the source folder.
+2. **Styling Issues**
+   - Run `npm run build` to ensure TailwindCSS classes are generated
+   - Check for conflicting styles in `globals.css`
 
-Components must follow this template. The ```---``` represents the code fence and uses Javascript and can be used for imports.
+3. **Image Loading**
+   - Verify images are in the correct format (PNG, JPG, WebP)
+   - Check image paths are correct
+   - Ensure images are in the `public` directory
 
-The HTML component is the actual style of your new component.
+## Deployment
 
-```html
----
-// Component Script (JavaScript)
----
-<!-- Component Template (HTML + JS Expressions) -->
-```
+Follow these steps to deploy your portfolio for free using GitHub and Vercel:
 
-For more details, see the [astro components](https://docs.astro.build/en/core-concepts/astro-components/) documentation here.
+1. Create a new GitHub repository
 
-### Layouts
+2. Push your portfolio to GitHub
 
-Include `BaseLayout` in each page you add and `PostLayout` to your post pages.
+3. Deploy with Vercel:
+   - Go to [Vercel](https://vercel.com)
+   - Sign up or log in with GitHub
+   - Click "New Project"
+   - Import your GitHub repository
 
-The BaseLayout defines a general template for each new webpage you want to add. It imports constants SITE_TITLE and SITE_DESCRIPTION which can be modified in the ```../config``` folder. Data placed there can be imported anywhere using import.
+## Enabling Vercel Analytics
 
-### Content
+This template includes the necessary components to use Vercel Analytics. To enable it, follow these steps:
 
-You can add a [content collection](https://docs.astro.build/en/guides/content-collections/) in `/content/' folder, you will need add it at config.ts.
+1.  Go to your project's dashboard on [Vercel](https://vercel.com).
+2.  Navigate to the "Analytics" tab.
+3.  Click "Enable" to start tracking visitor data.
 
-#### config.ts
+No code changes are needed, as the `<Analytics />` component is already included in the layout.
 
-Where you need to define your content collections, we define our content schemas too.
+- Vercel will automatically detect Next.js
+- Click "Deploy"
 
-#### Blog
+Your portfolio will be live in minutes with a free Vercel domain (e.g., `your-repo.vercel.app`). You can later add a custom domain in your Vercel project settings.
 
-Add your `md` blog post in the `/content/blog/` folder.
+## Support
 
-##### Post format
-
-Add code with this format in the top of each post file.
-
-```
----
-title: "Post Title"
-description: "Description"
-pubDate: "Post date format(Sep 10 2022)"
-heroImage: "Post Hero Image URL"
----
-```
-
-### Pages
-
-#### Blog
-
-Blog uses Astro's content collection to query post's `md`.
-
-##### [page].astro
-
-The `[page].astro` is the route to work with the paginated post list. You can change there the number of items listed for each page and the pagination button labels.
-
-##### [slug].astro
-
-The `[slug].astro` is the base route for every blog post, you can customize the page layout or behaviour, by default uses `content/blog` for content collection and `PostLayout` as layout.
-
-#### Shop
-
-Add your `md` item in the `/pages/shop/` folder.
-
-##### [page].astro
-
-The `[page].astro` is the route to work with the paginated item list. You can change there the number of items listed for each page and the pagination button labels. The shop will render all `.md` files you include inside this folder.
-
-##### Item format
-
-Add code with this format at the top of each item file.
-
-```js
----
-title: "Demo Item 1"
-description: "Item description"
-heroImage: "Item img url"
-details: true // show or hide details btn
-custom_link_label: "Custom btn link label"
-custom_link: "Custom btn link"
-pubDate: "Sep 15 2022"
-pricing: "$15"
-oldPricing: "$25.5"
-badge: "Featured"
-checkoutUrl: "https://checkouturl.com/"
----
-```
-
-#### Static pages
-
-The other pages included in the template are static pages. The `index` page belongs to the root page. You can add your pages directly in the `/pages` folder and then add a link to those pages in the `sidebar` component.
-
-Feel free to modify the content included in the pages that the template contains or add the ones you need.
-
-### Theming
-
-To change the template theme change the `data-theme` attribute of the `<html>` tag in `BaseLayout.astro` file.
-
-You can choose among 30 themes available or create your custom theme. See themes available [here](https://daisyui.com/docs/themes/).
-
-## Sitemap
-
-The Sitemap is generated automatically when you build your website in the root of the domain. Please update the `robots.txt` file in the public folder with your site name URL for the Sitemap.
-
-## Deploy
-
-You can deploy your site on your favourite static hosting service such as Vercel, Netlify, GitHub Pages, etc.
-
-The configuration for the deployment varies depending on the platform where you are going to do it. See the [official Astro information](https://docs.astro.build/en/guides/deploy/) to deploy your website.
-
-> **⚠️ CAUTION** </br>
-> The Blog pagination of this template is implemented using dynamic route parameters in its filename and for now this format is incompatible with SSR deploy configs, so please use the default static deploy options for your deployments.
-
-## Contributing
-
-Suggestions and pull requests are welcomed! Feel free to open a discussion or an issue for a new feature request or bug.
-
-One of the best ways to contribute is to grab a [bug report or feature suggestion](https://github.com/manuelernestog/astrofy/issues) that has been marked `accepted` and dig in.
-
-Please be wary of working on issues _not_ marked as `accepted`. Just because someone has created an issue doesn't mean we'll accept a pull request for it.
-
-## License
-
-Astrofy is licensed under the MIT license — see the [LICENSE](https://github.com/manuelernestog/astrofy/blob/main/LICENSE) file for details.
-
-## Contributors
-
-<a href="https://github.com/manuelernestog/astrofy/graphs/contributors">
-  <img src="https://contrib.rocks/image?repo=manuelernestog/astrofy" />
-</a>
-
-Made with [contrib.rocks](https://contrib.rocks).
-
-
-# Fake edit to show commits
+If you have any other questions or you encountered bugs/problems, you should write on the [private discord](https://discord.gg/WUCVGW72xd) or on https://www.devportfoliotemplates.com/contact.
